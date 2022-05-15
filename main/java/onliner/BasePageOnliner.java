@@ -49,4 +49,17 @@ public abstract class BasePageOnliner {
         log.debug("Get text of element: " + element);
         return getWebElement(element).getText();
     }
+    protected void pause(long seconds) {
+        log.debug("Pause for seconds: " + seconds);
+        try {
+            Thread.sleep(seconds * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    protected void moveToElementAndClick(By element) {
+        log.debug("Move to element amd click"+element);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(getWebElement(element)).click().build().perform();
+    }
 }
