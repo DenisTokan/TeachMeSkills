@@ -42,6 +42,10 @@ public class MainPage extends BasePageOnliner {
         driver.findElement(Message).click();
         return this;
     }
+    public MainPage CheckLogin(){
+        driver.findElement(Login).click();
+        return this;
+    }
 
 
 }

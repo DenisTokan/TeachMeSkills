@@ -1,6 +1,7 @@
 import Browser.Base;
 import onliner.Pages.CatalogPage;
 import onliner.Pages.CurrencyPage;
+import onliner.Pages.LoginPage;
 import onliner.Pages.MainPage;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -13,22 +14,31 @@ public class GraduateTest extends Base {
     }
 
 
-    @Test(priority = 1)
+    @Test(description = "Check value",priority = 1)
     public void LimitValuesTest(){
         get(MainPage.class).GoToCurrency();
         get(CurrencyPage.class).CheckValue();
     }
-    @Test(priority = 2)
+    @Test(description = "Check popup message",priority = 2)
     public void CheckMessage(){
         get(MainPage.class).checkMessage();
     }
-    @Test(priority = 3)
+    @Test(description = "Add phone to cart",priority = 3)
     public void CreateEssense(){
         get(CatalogPage.class)
                 .CreateEssense();
     }
-    @Test(priority = 4)
+    @Test(description = "Remove phone from cart", priority = 4)
     public void DeleteEssense(){
         get(CatalogPage.class).DelEssense();
+    }
+    @Test(description = "Check dialog page", priority = 5)
+    public void CheckLogin(){
+        get(MainPage.class).CheckLogin();
+        get(LoginPage.class).CheckLoginPage();
+    }
+    @Test(description = "Login with incorrect data", priority = 6)
+    public void IncorrectLogin(){
+        get(LoginPage.class).NegativeLogin();
     }
 }

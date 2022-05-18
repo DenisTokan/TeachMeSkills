@@ -20,6 +20,8 @@ public class CatalogPage extends BasePageOnliner {
     private By GoToCart = By.linkText("Перейти в корзину");
     private By DelPhone = By.cssSelector("div[class$='remove'] div a");
     private By Text = By.cssSelector("[class$='extra']");
+    private By Exit = By.xpath("//a[contains(text(),'Закрыть')]");
+    private By GoToMain = By.xpath("//div[@id='container']/div[2]/div/div/div/div/div/div/div/a");
 
     public CatalogPage CreateEssense() {
         pause(3);
@@ -35,6 +37,8 @@ public class CatalogPage extends BasePageOnliner {
         moveToElementAndClick(DelPhone);
         pause(2);
         Assert.assertEquals(getText(Text), "Вы удалили Смартфон Apple iPhone 13 128GB (темная ночь)");
+        driver.findElement(Exit).click();
+        driver.findElement(GoToMain).click();
         return this;
     }
 }
