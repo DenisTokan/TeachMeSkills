@@ -8,7 +8,7 @@ ____
 * :white_check_mark:1 test for deleting an entity
 * :white_check_mark:1 dialog display test
 * :negative_squared_cross_mark:1 file upload test - still in progress :)
-##### 3 negative tests:
+##### 2 negative tests:
 * :white_check_mark: 1 test for the use of incorrect data
 * :white_check_mark: 1 test for entering data exceeding the permissible
 ##### Additionally:
