@@ -1,8 +1,5 @@
 import Browser.Base;
-import onliner.Pages.CatalogPage;
-import onliner.Pages.CurrencyPage;
-import onliner.Pages.LoginPage;
-import onliner.Pages.MainPage;
+import onliner.Pages.*;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -40,5 +37,12 @@ public class GraduateTest extends Base {
     @Test(description = "Login with incorrect data", priority = 6)
     public void IncorrectLogin(){
         get(LoginPage.class).NegativeLogin();
+    }
+    @Test(description = "exceeding the values", priority = 7)
+    public void ExceedingValues(){
+        get(LoginPage.class).GoToRegistration();
+        get(RegistrationPage.class)
+                .CheckRegistrationPage()
+                .IncorrectPassword();
     }
 }

@@ -14,6 +14,7 @@ public class LoginPage extends BasePageOnliner {
     private By Button = By.xpath("(//button[@type='submit'])[2]");
     private By Errormsg = By.xpath("//*[contains(@class,'auth-form__description_extended-other')]");
     private By CheckTxt = By.xpath("//div[@id='auth-container']/div/div[2]/div/div");
+    private By Registration = By.linkText("Зарегистрироваться на Onlíner");
 
     public LoginPage CheckLoginPage(){
         driver.findElement(Mail).isDisplayed();
@@ -22,7 +23,6 @@ public class LoginPage extends BasePageOnliner {
         Assert.assertEquals(getText(CheckTxt), "Вход");
         return this;
     }
-
     public LoginPage NegativeLogin(){
         driver.findElement(Mail).sendKeys("123");
         driver.findElement(Password).sendKeys("123");
@@ -31,4 +31,9 @@ public class LoginPage extends BasePageOnliner {
         Assert.assertEquals(getText(Errormsg), "Неверный логин или пароль");
         return this;
     }
+    public LoginPage GoToRegistration(){
+        driver.findElement(Registration).click();
+        return this;
+    }
+
 }
